@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class DrawingControl : MonoBehaviour
 {
+
     public bool DrawingOn = true;
-    public Color currentColor = Color.red; 
+    public bool DrawLines = false; 
+    public Color currentColor = Color.red;
+    public float currentWidth = 10;
+    public Sprite currentBrush; 
     public GameObject drawingObject;
     public Transform DrawArea; 
     public Vector3 MousePosition;
@@ -32,16 +36,59 @@ public class DrawingControl : MonoBehaviour
         if (DrawingOn)
         {
             
-            if(Input.GetMouseButtonDown(0))
+           if (Input.touchSupported)
             {
-                OnStart();
+                TouchControls();
+            }
+           else
+            {
+                MouseControls(); 
             }
 
 
-            //drawingObject.transform.position = Input.mousePosition; 
+            
 
         }
     }
+
+    public void MouseControls()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            OnStart();
+        }
+    }
+
+    public void TouchControls()
+    {
+        Touch[] touches = Input.touches; 
+        if (touches.Length > 0)
+        {
+            if (touches[0].phase == TouchPhase.Began)
+            {
+
+            }
+
+
+            if (touches[0].phase == TouchPhase.Moved)
+            {
+
+            }
+
+            if (touches[0].phase == TouchPhase.Ended)
+            {
+
+            }
+
+            if (touches[0].phase == TouchPhase.Canceled)
+            {
+                RemoveLastLine(); 
+            }
+        }
+        
+    }
+
+
 
 
     public void RemoveLastLine()
@@ -59,7 +106,9 @@ public class DrawingControl : MonoBehaviour
     {
         currentObject = Instantiate(drawingObject, DrawArea);
         Image image = currentObject.GetComponent<Image>();
-        image.color = currentColor; 
+        image.color = currentColor;
+        image.sprite = currentBrush;
+        image.rectTransform.sizeDelta = new Vector2(currentWidth, currentWidth); 
         drawingObjectList.Add(currentObject); 
         currentObject.transform.position = MousePosition; 
     }

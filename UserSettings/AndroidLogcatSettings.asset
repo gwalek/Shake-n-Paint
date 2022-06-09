@@ -3,29 +3,11 @@
     "m_SelectedPackage": {
         "deviceId": "5200b2884a3d95c7",
         "name": "com.Grash.ShakeNPaint",
-        "processId": 12170,
+        "processId": 22587,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 31979,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 1647,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 4646,
-            "exited": true
-        },
         {
             "deviceId": "5200b2884a3d95c7",
             "name": "com.Grash.ShakeNPaint",
@@ -42,6 +24,30 @@
             "deviceId": "5200b2884a3d95c7",
             "name": "com.Grash.ShakeNPaint",
             "processId": 12170,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 12726,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.sec.android.app.launcher",
+            "processId": 5613,
+            "exited": false
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 19755,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 22587,
             "exited": false
         }
     ],
