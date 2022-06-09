@@ -97,25 +97,11 @@ public class InterfaceControl : MonoBehaviour
 
         //Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
 
-        string whereto = "DCIM/Screenshots" + "/" + fileName;
         
-        Debug.Log("wherefrom: " + wherefrom);
-        
-        if (File.Exists(wherefrom))
-        {
-            Debug.Log("Found File in App Area");
-
-        }
-        
-        Debug.Log("whereto: " + whereto);
+     
 
         NativeGallery.SaveImageToGallery(wherefrom, "Downloads", fileName); 
-        //File.Move(wherefrom, whereto); 
-
-        if (File.Exists(whereto))
-        {
-            Debug.Log("Found File in Gallery");
-        }
+   
 
     }
 
