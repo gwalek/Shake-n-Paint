@@ -7,5 +7,12 @@ Visual Studio 2019
 Audio Work: 
 Audacity 
 
+ 
+Native Gallery for Android & iOS: 
+Developer: 
+https://yasirkula.net/
+Asset Store: https://assetstore.unity.com/packages/tools/integration/native-gallery-for-android-ios-112630
+GitHub: https://github.com/yasirkula/UnityNativeGallery
+
 Menu Button Icon: 
 PixelArt.com 

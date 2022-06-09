@@ -1,9 +1,12 @@
 using System.Collections;
+using System.IO; 
 using System.Collections.Generic;
 using UnityEngine;
+using NativeGalleryNamespace; 
 
 public class InterfaceControl : MonoBehaviour
 {
+    public bool AddSavedImages = false; 
     public DrawingControl drawingControl;
 
     public GameObject menuButton;
@@ -13,7 +16,7 @@ public class InterfaceControl : MonoBehaviour
     public AudioClip cameraSource;
     public AudioSource audioSource;
 
-    public string debugFilename;
+    public string fileName;
 
     public void Start()
     {
@@ -75,12 +78,45 @@ public class InterfaceControl : MonoBehaviour
     {
         System.DateTime now = System.DateTime.Now;
 
-        string filename = "SavedImages\\SNP." +
+        fileName = "SNP." +
             now.Year + "." + now.Month + "." + now.Day + "." +
             now.Hour + "." + now.Minute + "." + now.Second + ".png"; 
-        debugFilename = filename; 
+        
+        if(AddSavedImages)
+        {
+            fileName = "SavedImages//" + fileName; 
+        }
 
-        ScreenCapture.CaptureScreenshot(filename);
+        ScreenCapture.CaptureScreenshot(fileName);
+
+    }
+
+    public void CheckExists()
+    {
+        string wherefrom = Application.persistentDataPath + "/" + fileName;
+
+        //Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+
+        string whereto = "DCIM/Screenshots" + "/" + fileName;
+        
+        Debug.Log("wherefrom: " + wherefrom);
+        
+        if (File.Exists(wherefrom))
+        {
+            Debug.Log("Found File in App Area");
+
+        }
+        
+        Debug.Log("whereto: " + whereto);
+
+        NativeGallery.SaveImageToGallery(wherefrom, "Downloads", fileName); 
+        //File.Move(wherefrom, whereto); 
+
+        if (File.Exists(whereto))
+        {
+            Debug.Log("Found File in Gallery");
+        }
+
     }
 
     public void ClearImage()

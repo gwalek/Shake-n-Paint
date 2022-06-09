@@ -1,13 +1,50 @@
 {
-    "m_SelectedDeviceId": "",
+    "m_SelectedDeviceId": "5200b2884a3d95c7",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "5200b2884a3d95c7",
+        "name": "com.Grash.ShakeNPaint",
+        "processId": 12170,
         "exited": false
     },
     "m_SelectedPriority": 0,
-    "m_KnownPackagesForSerialization": [],
+    "m_KnownPackagesForSerialization": [
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 31979,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 1647,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 4646,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 7782,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 10084,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 12170,
+            "exited": false
+        }
+    ],
     "m_Tags": {
         "m_Entries": [
             {
@@ -41,9 +78,20 @@
         ]
     },
     "m_MemoryViewerState": {
-        "MemoryWindowHeight": 0.0,
-        "MemoryWindowWidth": 0.0,
-        "MemoryTypeEnabled": [],
+        "MemoryWindowHeight": 300.0,
+        "MemoryWindowWidth": 170.0,
+        "MemoryTypeEnabled": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+        ],
         "MemoryGroup": 2,
         "Behavior": 0
     },
