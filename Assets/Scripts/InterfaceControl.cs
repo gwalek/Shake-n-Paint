@@ -10,7 +10,13 @@ public class InterfaceControl : MonoBehaviour
 {
     public bool AddSavedImagesFolderName = false; 
     public DrawingControl drawingControl;
-        
+    public bool MoreCowbell = false;
+    public bool IsClearing = false;
+    public float ClearAfterShakeReenabledTime = .2f;
+    public bool HitingCowbell = false;
+    public float CowbellReenabledTime = .2f;
+
+
     [Space(10)]
     public Camera mainCamera;
     public Image menuBackground;
@@ -51,17 +57,19 @@ public class InterfaceControl : MonoBehaviour
     public void Start()
     {
         drawingControl.DrawingOn = true;
+        MoreCowbell = false;
         menuButton.SetActive(true);
         menuPannel.SetActive(false);
         aboutPannel.SetActive(false);
         cowbellPannel.SetActive(false);
         exitPannel.SetActive(false);
+
+       
     }
 
     public void OnOpenMenu()
     {
         Debug.Log("Open Menu");
-      
         
         menuButton.SetActive(false);
         menuPannel.SetActive(true);
@@ -76,6 +84,7 @@ public class InterfaceControl : MonoBehaviour
             drawingControl.RemoveLastLine();
         }
         drawingControl.DrawingOn = false;
+        MoreCowbell = false;
     }
 
     public void OnCloseMenu()
@@ -91,6 +100,7 @@ public class InterfaceControl : MonoBehaviour
         audioSource.PlayOneShot(clickSound);
 
         drawingControl.DrawingOn = true;
+        MoreCowbell = false;
     }
 
     public void OnOpenAbout()
@@ -106,6 +116,7 @@ public class InterfaceControl : MonoBehaviour
         audioSource.PlayOneShot(clickSound);
 
         drawingControl.DrawingOn = false;
+        MoreCowbell = false;
     }
 
     public void OnOpenCowbell()
@@ -121,6 +132,7 @@ public class InterfaceControl : MonoBehaviour
         audioSource.PlayOneShot(clickSound);
 
         drawingControl.DrawingOn = false;
+        MoreCowbell = true;
     }
 
     public void OnOpenExit()
@@ -155,24 +167,54 @@ public class InterfaceControl : MonoBehaviour
     public void OnClearImage()
     {
         Debug.Log("Clear Image");
+        if (IsClearing)
+        {
+            return; 
+        }
+        IsClearing = true;
         audioSource.PlayOneShot(shakeSound);
         ClearImage();
+        StartCoroutine(WaitToClearAgain());
+    }
+
+    public IEnumerator WaitToClearAgain()
+    {
+        yield return new WaitForSeconds(ClearAfterShakeReenabledTime);
+        IsClearing = false; 
     }
 
     public void OnShake()
     {
-        ClearImage();
+        Debug.Log("On Shake");
+        
+        if (MoreCowbell)
+        {
+            OnCowbell(); 
+        }
+
+        if (drawingControl.DrawingOn)
+        {
+            OnClearImage(); 
+        }
     }
 
-    public void ShakeOn()
+    public void OnCowbell()
     {
-
+        if (HitingCowbell)
+        {
+            return; 
+        }
+        audioSource.PlayOneShot(MoarCowbell);
+        HitingCowbell = true;
+        StartCoroutine(ReenableCowbell()); 
     }
 
-    public void ShakeOff()
+    public IEnumerator ReenableCowbell()
     {
-
+        yield return new WaitForSeconds(CowbellReenabledTime);
+        HitingCowbell = false;
     }
+
 
     public void SaveImage()
     {
@@ -211,6 +253,8 @@ public class InterfaceControl : MonoBehaviour
         // Reopen the Menu, it was closed to take a screen shot. 
         OnOpenMenu();
     }
+
+ 
 
     public void MoveScreenShotToGallery()
     {

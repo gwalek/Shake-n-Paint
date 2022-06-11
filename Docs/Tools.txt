@@ -15,4 +15,4 @@ Asset Store: https://assetstore.unity.com/packages/tools/integration/native-gall
 GitHub: https://github.com/yasirkula/UnityNativeGallery
 
 Menu Button Icon: 
-PixelArt.com 
+https://www.pixilart.com/

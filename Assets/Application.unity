@@ -5424,6 +5424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655129426}
+  - component: {fileID: 1655129429}
   - component: {fileID: 1655129425}
   - component: {fileID: 1655129428}
   - component: {fileID: 1655129427}
@@ -5581,6 +5582,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AddSavedImagesFolderName: 0
   drawingControl: {fileID: 1655129425}
+  MoreCowbell: 0
+  IsClearing: 0
+  ClearAfterShakeReenabledTime: 0.5
+  HitingCowbell: 0
+  CowbellReenabledTime: 0.21
   mainCamera: {fileID: 519420031}
   menuBackground: {fileID: 1719292687}
   menuBrush: {fileID: 417601634}
@@ -5621,6 +5627,38 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 21300000, guid: 71a5b6290c9a13f46a7afeb336d12dc4, type: 3}
   - {fileID: 21300000, guid: b494947f56c0ab642b03f838e20eae88, type: 3}
+--- !u!114 &1655129429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655129424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e24673f12bc164f9142b1ded819383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDetectionThreshold: 2
+  updateInterval: 0.016666668
+  lowPassKernalWidthInSeconds: 1
+  lowPassFilterFactor: 0
+  lowPassValue: {x: 0, y: 0, z: 0}
+  OnShake:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1655129428}
+        m_TargetAssemblyTypeName: InterfaceControl, Assembly-CSharp
+        m_MethodName: OnShake
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1664404793
 GameObject:
   m_ObjectHideFlags: 0
