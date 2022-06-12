@@ -6,16 +6,27 @@ using UnityEngine.UI;
 using NativeGalleryNamespace;
 using TMPro; 
 
+// Grash's Comment: 
+// Admittedly InterfaceControl is the Kitchen sink of the application. 
+// Every Button and interface element code is here
+// Saving the Image is here
+// As well as how to handle the shakes... 
+
 public class InterfaceControl : MonoBehaviour
 {
-    public bool AddSavedImagesFolderName = false; 
     public DrawingControl drawingControl;
+    public bool AddSavedImagesFolderName = false;
+
     public bool MoreCowbell = false;
+    
+
+    [Space(10)]
+    // Co-Routines 
     public bool IsClearing = false;
     public float ClearAfterShakeReenabledTime = .2f;
     public bool HitingCowbell = false;
     public float CowbellReenabledTime = .2f;
-
+    
 
     [Space(10)]
     public Camera mainCamera;
@@ -31,15 +42,16 @@ public class InterfaceControl : MonoBehaviour
     public GameObject aboutPannel;
     public GameObject cowbellPannel;
     public GameObject exitPannel;
+    public GameObject CameraFlash; 
 
     [Space(10)]
+    public int DrawMode = 0;
     public int currentColor = 0;
     public int currentBrush = 0;
     public int currentBackground = 10;
     public int currentWidth = 10; 
     public int MAXWIDTH = 100;
-    public int stepCount = 0;
-
+    
     [Space(10)]
     public AudioSource audioSource;
     public AudioClip clickSound;
@@ -56,6 +68,7 @@ public class InterfaceControl : MonoBehaviour
 
     public void Start()
     {
+        // The App Defaults to a drawing state. 
         drawingControl.DrawingOn = true;
         MoreCowbell = false;
         menuButton.SetActive(true);
@@ -63,9 +76,22 @@ public class InterfaceControl : MonoBehaviour
         aboutPannel.SetActive(false);
         cowbellPannel.SetActive(false);
         exitPannel.SetActive(false);
-
-       
     }
+
+    // Self Promotion, Ya'll!
+    public void OpenURL(string URL)
+    {
+        Application.OpenURL(URL); 
+    }
+
+    // Grash's Notes:
+    // Why do you see alot of repeated code in the OnOpen--- Methods?
+    // The app can be losely looked at in terms of states. 
+    // We can think of Drawing as a state, Each pannel as a state.  
+    // The drawing it self, saving, shakes, all the buttons as "actions" aka doing something... 
+    // One of the things that I picked from using an abstract state modeling language, 
+    // When you change a state, you make sure you set every variable, not just the ones that changed. 
+    // This makes state changes cleaner when you do them! 
 
     public void OnOpenMenu()
     {
@@ -234,22 +260,27 @@ public class InterfaceControl : MonoBehaviour
 
         // Start Co-Routine
         Debug.Log("Star Co-Routine");
-        stepCount = 0;
         StartCoroutine(PerformScreenCapture()); 
         
 
     }
     public IEnumerator PerformScreenCapture()
     {
-        //stepCount++;
+       
         yield return new WaitForSeconds(.1f);
         ScreenCapture.CaptureScreenshot(fileName);
 
-        yield return new WaitForSeconds(.1f);
-        // TO DO: Need to wrap this for platform... 
+        // This needs to be .2 in order the file to be there. 
+        yield return new WaitForSeconds(.2f);
+        CameraFlash.SetActive(true);
+
+        // Need to wrap this correctly. 
         MoveScreenShotToGallery();
 
+        yield return new WaitForSeconds(.3f);
+        CameraFlash.SetActive(false);
         yield return new WaitForSeconds(.1f);
+        
         // Reopen the Menu, it was closed to take a screen shot. 
         OnOpenMenu();
     }
@@ -343,15 +374,34 @@ public class InterfaceControl : MonoBehaviour
 
     public void ToggleDrawMode()
     {
-        drawingControl.DrawLines = !drawingControl.DrawLines; 
-        if (drawingControl.DrawLines)
-        {
-            DrawModeField.text = "Line Mode"; 
-        }
-        else
-        {
-            DrawModeField.text = "Point Mode";
-        }
+        DrawMode++;
+        if (DrawMode > 3) { DrawMode = 0; }
+
+        if (DrawMode == 0) { OnPointMode(); return; }
+        if (DrawMode == 1) { OnLineMode(); return; }
+        if (DrawMode == 2) { OnLinesMode(); return; }
     }
+
+    public void OnPointMode()
+    {
+        drawingControl.IsLinesModeOn = false;
+        drawingControl.DrawOnlyALine = false;
+        DrawModeField.text = "Point Mode";
+    }
+
+    public void OnLineMode()
+    {
+        drawingControl.IsLinesModeOn = true;
+        drawingControl.DrawOnlyALine = true;
+        DrawModeField.text = "Line Mode";
+    }
+
+    public void OnLinesMode()
+    {
+        drawingControl.IsLinesModeOn = true;
+        drawingControl.DrawOnlyALine = false;
+        DrawModeField.text = "Lines Mode";
+    }
+
 
 }

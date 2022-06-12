@@ -3,51 +3,51 @@
     "m_SelectedPackage": {
         "deviceId": "5200b2884a3d95c7",
         "name": "com.Grash.ShakeNPaint",
-        "processId": 19346,
+        "processId": 20778,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 12726,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
             "name": "com.sec.android.app.launcher",
-            "processId": 5613,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 19755,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 22587,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 16140,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 17948,
+            "processId": 5430,
             "exited": false
         },
         {
             "deviceId": "5200b2884a3d95c7",
             "name": "com.Grash.ShakeNPaint",
-            "processId": 19346,
+            "processId": 26118,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.samsung.android.dialer",
+            "processId": 9866,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 14048,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 16136,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 18956,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 20778,
             "exited": false
         }
     ],
