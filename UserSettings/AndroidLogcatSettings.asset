@@ -1,9 +1,9 @@
 {
     "m_SelectedDeviceId": "5200b2884a3d95c7",
     "m_SelectedPackage": {
-        "deviceId": "5200b2884a3d95c7",
-        "name": "com.Grash.ShakeNPaint",
-        "processId": 20778,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -13,18 +13,6 @@
             "name": "com.sec.android.app.launcher",
             "processId": 5430,
             "exited": false
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.Grash.ShakeNPaint",
-            "processId": 26118,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b2884a3d95c7",
-            "name": "com.samsung.android.dialer",
-            "processId": 9866,
-            "exited": true
         },
         {
             "deviceId": "5200b2884a3d95c7",
@@ -48,6 +36,18 @@
             "deviceId": "5200b2884a3d95c7",
             "name": "com.Grash.ShakeNPaint",
             "processId": 20778,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.google.android.youtube",
+            "processId": 29465,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b2884a3d95c7",
+            "name": "com.Grash.ShakeNPaint",
+            "processId": 26956,
             "exited": false
         }
     ],
